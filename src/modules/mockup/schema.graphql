@@ -1,0 +1,12 @@
+type Query {
+  get: Boolean
+}
+
+type Mutation {
+  create: Boolean
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+}

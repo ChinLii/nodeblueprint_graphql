@@ -1,0 +1,25 @@
+version: '3.1'
+
+services:
+  
+  api: 
+    build:
+      context: .
+      dockerfile: ./Dockerfile.test
+    environment:
+      NODE_ENV: test
+      PORT: 4020
+      MONGO_URI: "mongodb://mongo:27017/mockup"
+      JWT_SECRET: GLpNfb0b9ypMohara
+      JWT_EXPIRATION_MINUTES: 60
+    depends_on:
+      - mongo
+    ports:
+      - 4020:4020
+    links:
+      - mongo 
+
+  mongo:
+    image: mongo
+    restart: always
+    command: mongod --storageEngine=wiredTiger

@@ -1,0 +1,62 @@
+{
+  "name": "nodejs_graphql",
+  "version": "1.0.0",
+  "description": "structure of the project",
+  "main": "src/index.js",
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint .",
+    "dev": "nodemon ./src/index.js --ignore client --exec \"npm run lint && node\"",
+    "start": "cross-env NODE_ENV=production node ./src/index.js",
+    "docker:dev": "docker-compose -f docker-compose.dev.yml up",
+    "docker:dev-server": "docker-compose -f docker-compose.dev-server.yml up -d",
+    "docker:uat-server": "docker-compose -f docker-compose.uat-server.yml up -d",
+    "docker:staging-server": "docker-compose -f docker-compose.staging-server.yml up -d",
+    "build": "webpack",
+    "test": "jest"
+  },
+  "author": "Kananek Atichatviwat",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server-express": "^2.0.6",
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "cross-env": "^5.1.5",
+    "dotenv-safe": "^5.0.1",
+    "express": "^4.16.3",
+    "express-jwt": "^5.3.1",
+    "graphql": "^14.1.1",
+    "graphql-compose": "^6.0.3",
+    "graphql-compose-mongoose": "^6.0.2",
+    "graphql-compose-pagination": "^5.0.0",
+    "graphql-tools": "^3.0.1",
+    "jsonwebtoken": "^8.2.1",
+    "merge-graphql-schemas": "^1.5.1",
+    "moment": "^2.22.2",
+    "mongoose": "^5.3.11",
+    "pm2": "^2.10.3"
+  },
+  "devDependencies": {
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "graphql-tester": "0.0.5",
+    "jest": "^23.6.0",
+    "nodemon": "^1.17.4"
+  },
+  "jest": {
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?)$",
+    "moduleFileExtensions": [
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "collectCoverageFrom": [
+      "**src/modules/**/*.{js,jsx}",
+      "**src/models/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/vendor/**"
+    ]
+  }
+}

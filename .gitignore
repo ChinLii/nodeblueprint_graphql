@@ -1,0 +1,4 @@
+node_modules/*
+.docker/*
+.scannerwork/*
+package-lock.json

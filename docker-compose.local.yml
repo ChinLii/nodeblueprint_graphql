@@ -1,0 +1,20 @@
+version: '3.1'
+
+services:
+  
+  api: 
+    build:
+      context: .
+      dockerfile: ./Dockerfile.dev
+    volumes:
+      - ./src:/opt/app/src
+    environment:
+      NODE_ENV: development
+      PORT: 4022
+      MONGO_URI: "mongodb://192.168.0.1:27000/boilerplate"
+      JWT_SECRET: GLpNfb0b9ypMohara
+      JWT_EXPIRATION_MINUTES: 60
+    ports:
+      - 4022:4022
+
+
